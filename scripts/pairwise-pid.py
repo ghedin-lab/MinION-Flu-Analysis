@@ -25,11 +25,11 @@ for record in alignment :
 		for i in range(0,len(record.seq)):
 			if record.seq[i] == "-":
 				deletion += 1
-				print refName,i,"del"
+				#print refName,i,"del"
 			elif record.seq[i] != ref[i]:
 				mismatch += 1
-				print refName,i,"snv"
-			else:
-				print refName,i,"NA"
+				#print refName,i,"snv"
+			#else:
+				#print refName,i,"NA"
 
 		print refName,"\t",len(ref),"\t",mismatch,"\t",deletion
