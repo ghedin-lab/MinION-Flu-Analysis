@@ -12,3 +12,7 @@
 *mixed-infection*
 *spades-out*
 *fastq
+*fastq.gz
+*delta
+*.fasta.*
+*.fasta

@@ -29,8 +29,8 @@ def getRefNames(bam):
 	refdict = {}
 	for i in f.header['SQ']:
 		# remove when finished
-		if 'FluB' in i['SN']:
-			refdict[i['SN']] = i['LN'] 
+		# if 'FluB' in i['SN']:
+		refdict[i['SN']] = i['LN'] 
 	return refdict
 
 
@@ -83,6 +83,27 @@ def assemble(fastq):
 	spadesOut = spadesOut+"-spades-out"
 	subprocess.call(["spades.py","-s",fastq,"-o",spadesOut],stdout=open(os.devnull, 'wb'))
 	return spadesOut
+'''		
+def trimmomatic(fastq,adaptors):
+
+	PE -threads 6 flub.r1.fastq.gz flub.r2.fastq.gz flub.r1.trimmed.fastq flub.se.r1.trimmed.fastq \
+	flub.r2.trimmed.fastq flub.se.r2.trimmed.fastq ILLUMINACLIP:/usr/local/share/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 \
+	LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:25
+	for miseq minion clinical samples: /usr/local/share/trimmomatic/adapters/TruSeq3-PE-2.fa
+	java -jar /share/apps/trimmomatic/0.32/trimmomatic-0.32.jar \
+	PE \
+	all.non-rRNA.deconseq_clean.r1.fastq \
+	all.non-rRNA.deconseq_clean.r2.fastq \
+	all.non-rRNA.deconseq_clean.trimmed.r1.fastq \
+	all.non-rRNA.deconseq_clean.trimmed.se.r1.fastq \
+	all.non-rRNA.deconseq_clean.trimmed.r2.fastq \
+	all.non-rRNA.deconseq_clean.trimmed.se.r2.fastq \
+	ILLUMINACLIP:adaptors.fa:2:30:10 \
+	LEADING:3 \
+	TRAILING:3 \
+	SLIDINGWINDOW:4:15 \
+	MINLEN:28
+'''
 
 def main():
 	refNames = getRefNames(args.bam)
