@@ -17,4 +17,4 @@
 *.fasta.*
 *.fasta
 *genome
-*aln
+*contig-comparison*
