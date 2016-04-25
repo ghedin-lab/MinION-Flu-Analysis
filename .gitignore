@@ -17,3 +17,4 @@
 *.fasta.*
 *.fasta
 *genome
+*aln
