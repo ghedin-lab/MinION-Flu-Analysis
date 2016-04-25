@@ -16,10 +16,11 @@ for pileupcolumn in samfile.pileup(segment):
 	ntdict = {}
 	for pileupread in pileupcolumn.pileups:
 
-	#	count += 1
+		#count += 1
 
 		# if pileupread.is_refskip == 1:
 		# 	print 'WAHTAHTHA'
+
 		if not pileupread.is_del:# and not pileupread.is_refskip:  # query position is None if is_del or is_refskip is set.
 			soment = pileupread.alignment.query_sequence[pileupread.query_position]
 			if ntdict.has_key(soment):
