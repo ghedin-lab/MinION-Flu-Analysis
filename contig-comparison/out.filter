@@ -1,0 +1,28 @@
+/Users/alan/projects/MinION-Flu-Analysis/contig-comparison/c3.flu-6-4-h3n2-70.fludb.top-seg-hits.contigs.fasta /Users/alan/projects/MinION-Flu-Analysis/contig-comparison/a39.flu-4-5.fludb.top-seg-hits.contigs.fasta
+NUCMER
+>HA-h3n2-70 HA-h3n2-39 1877 1812
+101 1877 1809 33 69 69 0
+0
+>MP-h3n2-70 MP-h3n2-39 1142 1064
+101 1142 1045 4 22 22 0
+0
+>NA-h3n2-70 NA-h3n2-39 1483 1581
+1 1482 1 1481 43 43 0
+1457
+0
+>NP-h3n2-70 NP-h3n2-39 1711 1591
+128 1709 9 1591 26 26 0
+-30
+0
+>NS-h3n2-70 NS-h3n2-39 1032 920
+1 909 914 6 18 18 0
+0
+>PA-h3n2-70 PA-h3n2-39 2172 2255
+1 2172 2255 84 67 67 0
+0
+>PB1-h3n2-70 PB1-h3n2-39 2396 2378
+34 2396 15 2377 70 70 0
+0
+>PB2-h3n2-70 PB2-h3n2-39 2500 2412
+19 2374 2402 47 56 56 0
+0
