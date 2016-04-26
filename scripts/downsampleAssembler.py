@@ -83,12 +83,18 @@ def assemble(fastq):
 	spadesOut = spadesOut+"-spades-out"
 	subprocess.call(["spades.py","-s",fastq,"-o",spadesOut],stdout=open(os.devnull, 'wb'))
 	return spadesOut
-'''		
-def trimmomatic(fastq,adaptors):
+	
+#def align(fastq,ref):
 
-	PE -threads 6 flub.r1.fastq.gz flub.r2.fastq.gz flub.r1.trimmed.fastq flub.se.r1.trimmed.fastq \
-	flub.r2.trimmed.fastq flub.se.r2.trimmed.fastq ILLUMINACLIP:/usr/local/share/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10 \
-	LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:25
+def trimm(fastq,adaptors):
+
+	subprocess.call(["trimmomatic","PE","-threads 6",fastq+".r1.fastq.gz",fastq+".r2.fastq.gz",fastq+".trimmed.r1.fastq", fastq+".trimmed.se.r1.fastq",
+	fastq+".trimmed.r2.fastq", fastq+".trimmed.se.r2.fastq", "ILLUMINACLIP:/usr/local/share/trimmomatic/adapters/TruSeq3-PE-2.fa:2:30:10", "LEADING:3",
+	"TRAILING:3", "SLIDINGWINDOW:4:15", "MINLEN:25"])
+	
+	return [fastq+".trimmed.r1.fastq", fastq+".trimmed.se.r1.fastq",fastq+".trimmed.r2.fastq", fastq+".trimmed.se.r2.fastq"]
+	
+	'''
 	for miseq minion clinical samples: /usr/local/share/trimmomatic/adapters/TruSeq3-PE-2.fa
 	java -jar /share/apps/trimmomatic/0.32/trimmomatic-0.32.jar \
 	PE \
@@ -103,7 +109,7 @@ def trimmomatic(fastq,adaptors):
 	TRAILING:3 \
 	SLIDINGWINDOW:4:15 \
 	MINLEN:28
-'''
+	'''
 
 def main():
 	refNames = getRefNames(args.bam)
