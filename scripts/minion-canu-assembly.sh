@@ -4,6 +4,8 @@ seg='PB2'
 segNum='1'
 segSize='3k'
 
+cd "$(dirname "$0")"
+
 grep -P -B6 'Influenza B.+Segment:'$segNum flu-11-9.2d.fludb.xml | grep 'Iteration_query-def' | \
 perl -pe 's/^.+>(.+) FAS.+/$1/g' | grep --no-group-separator -A3 -F -f - flu-11-9.2d.fastq  > flu-11-9.2d.flub-$seg-reads.fastq
 
