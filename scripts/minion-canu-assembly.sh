@@ -14,10 +14,10 @@ do
 
 	echo $i
 
-	canu -p flu -d flu-11-9-flub-$seg-only-low-cov-canu-out genomeSize=$segSize corMhapSensitivity=high corMinCoverage=2 \
-	errorRate=0.035 minOverlapLength=499 corMaxEvidenceErate=$i -nanopore-raw flu-11-9.2d.flub-$seg-reads.fastq
+	canu -p flu -d flu-11-9-flub-$seg-$i-canu-out genomeSize=$segSize corMhapSensitivity=high corMinCoverage=2 \
+	errorRate=$i minOverlapLength=499 corMaxEvidenceErate=0.3 -nanopore-raw flu-11-9.2d.flub-$seg-reads.fastq
 	
-	grep -c '^>' flu-11-9-flub-$seg-only-low-cov-canu-out/flu.unassembled.fasta
+	grep -c '^>' flu-11-9-flub-$seg-$i-canu-out/flu.unassembled.fasta
 
 done
 
