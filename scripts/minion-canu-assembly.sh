@@ -2,7 +2,7 @@
 
 seg='PB2'
 segNum='1'
-segSize='3k'
+segSize='2.3k'
 
 cd "$(dirname "$0")"
 
