@@ -9,13 +9,13 @@ cd "$(dirname "$0")"
 grep -P -B6 'Influenza B.+Segment:'$segNum flu-11-9.2d.fludb.xml | grep 'Iteration_query-def' | \
 perl -pe 's/^.+>(.+) FAS.+/$1/g' | grep --no-group-separator -A3 -F -f - flu-11-9.2d.fastq  > flu-11-9.2d.flub-$seg-reads.fastq
 
-for i in .5 .3 .1 .035 .01
+for i in 5 3 1 035 01
 do
 
 	echo $i
 
 	canu -p flu -d flu-11-9-flub-$seg-$i-canu-out genomeSize=$segSize corMhapSensitivity=high corMinCoverage=2 \
-	errorRate=$i minOverlapLength=499 corMaxEvidenceErate=0.3 -nanopore-raw flu-11-9.2d.flub-$seg-reads.fastq
+	errorRate=.$i minOverlapLength=499 corMaxEvidenceErate=0.3 -nanopore-raw flu-11-9.2d.flub-$seg-reads.fastq
 	
 	grep -c '^>' flu-11-9-flub-$seg-$i-canu-out/flu.unassembled.fasta
 
